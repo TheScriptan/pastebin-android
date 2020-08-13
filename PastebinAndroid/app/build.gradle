@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: "io.gitlab.arturbosch.detekt"
 
 android {
     compileSdkVersion 29
@@ -46,3 +47,5 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
 }
+
+check.dependsOn(detekt)
