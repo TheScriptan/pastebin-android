@@ -56,6 +56,9 @@ dependencies {
     //Timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
+    //Material Design
+    implementation 'com.google.android.material:material:1.2.0'
+
 }
 
 check.dependsOn(detekt)
