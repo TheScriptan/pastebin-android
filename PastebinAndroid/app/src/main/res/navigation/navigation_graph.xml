@@ -15,4 +15,12 @@
         android:name="com.askominas.pastebinandroid.ui.ListPasteFragment"
         android:label="@string/list_paste_title"
         tools:layout="@layout/fragment_list_paste" />
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.askominas.pastebinandroid.ui.SignInFragment"
+        android:label="@string/sign_in_title"
+        tools:layout="@layout/fragment_sign_in" />
+    <action
+        android:id="@+id/action_global_signInFragment"
+        app:destination="@id/signInFragment" />
 </navigation>
