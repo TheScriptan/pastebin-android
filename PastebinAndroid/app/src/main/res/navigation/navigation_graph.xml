@@ -8,6 +8,6 @@
     <fragment
         android:id="@+id/createPasteFragment"
         android:name="com.askominas.pastebinandroid.ui.CreatePasteFragment"
-        android:label="@string/title_create_paste"
+        android:label="@string/create_paste_title"
         tools:visibility="visible" />
 </navigation>

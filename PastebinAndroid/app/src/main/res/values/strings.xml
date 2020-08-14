@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Pastebin Android</string>
-    <string name="title_create_paste">Create Paste</string>
+    <string name="create_paste_title">Create Paste</string>
+    <string name="create_paste_information">Enter text that you want to save in Pastebin\n\nAfter pressing Create Paste button, you will receive a link that saves your text online!</string>
 </resources>
