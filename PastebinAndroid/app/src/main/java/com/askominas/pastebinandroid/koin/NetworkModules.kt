@@ -1,11 +1,10 @@
 package com.askominas.pastebinandroid.koin
 
+import com.askominas.pastebinandroid.api.BASE_URL
 import com.askominas.pastebinandroid.api.PastebinApi
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
-
-const val BASE_URL = "https://pastebin.com/"
 
 val networkModule = module {
 
