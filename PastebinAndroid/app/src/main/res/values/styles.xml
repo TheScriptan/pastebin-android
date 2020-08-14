@@ -7,4 +7,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="BaseFragmentTheme">
+        <item name="android:background">@color/white</item>
+        <item name="android:padding">20dp</item>
+    </style>
+
 </resources>

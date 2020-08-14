@@ -9,5 +9,10 @@
         android:id="@+id/createPasteFragment"
         android:name="com.askominas.pastebinandroid.ui.CreatePasteFragment"
         android:label="@string/create_paste_title"
-        tools:visibility="visible" />
+        tools:layout="@layout/fragment_create_paste" />
+    <fragment
+        android:id="@+id/listPasteFragment"
+        android:name="com.askominas.pastebinandroid.ui.ListPasteFragment"
+        android:label="@string/list_paste_title"
+        tools:layout="@layout/fragment_list_paste" />
 </navigation>

@@ -18,7 +18,8 @@ class MainActivity : AppCompatActivity() {
 
         val navController = findNavController(R.id.nav_main)
         val appBarConfiguration = AppBarConfiguration.Builder(
-            R.id.createPasteFragment
+            R.id.createPasteFragment,
+            R.id.listPasteFragment
         ).build()
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
         NavigationUI.setupWithNavController(binding.bottomNav, navController)

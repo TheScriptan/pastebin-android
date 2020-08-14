@@ -12,8 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
-        android:padding="20dp">
+        style="@style/BaseFragmentTheme">
 
         <TextView
             android:id="@+id/text_create_paste_title"

@@ -4,4 +4,9 @@
         android:id="@+id/createPasteFragment"
         android:icon="@drawable/ic_launcher_background"
         android:title="@string/create_paste_title" />
+
+    <item
+        android:id="@+id/listPasteFragment"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="@string/list_paste_title" />
 </menu>
