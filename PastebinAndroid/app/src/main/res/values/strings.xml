@@ -7,6 +7,7 @@
 
     <string name="label_username">Username</string>
     <string name="label_password">Password</string>
+    <string name="label_clicks">Clicks: </string>
 
     <string name="option_sign_in">Sign in</string>
     <string name="option_log_out">Log out</string>
@@ -15,4 +16,5 @@
     <string name="create_paste_information">Enter text that you want to save in Pastebin\n\nAfter pressing Create Paste button, you will receive a link that saves your text online!</string>
 
     <string name="list_paste_information_logged_out">To see your paste list, please log in.</string>
+    <string name="paste_item_no_title">No title</string>
 </resources>

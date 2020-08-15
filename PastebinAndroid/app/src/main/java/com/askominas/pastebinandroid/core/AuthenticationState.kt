@@ -6,6 +6,7 @@ class AuthenticationState {
 
     private val preferences: AppPreferences by inject(AppPreferences::class.java)
 
+    val isLoggedInLiveData = preferences.userKeyLiveData
     val isLoggedIn: Boolean
         get() = preferences.userKey != DEFAULT_USER_KEY
 }

@@ -19,12 +19,22 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/text_list_paste_log_in_warning"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="@{!userLoggedIn}"
             android:text="@string/list_paste_information_logged_out"
+            android:visibility="@{!userLoggedIn}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_list_paste"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="@{userLoggedIn}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_list_paste_log_in_warning" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
