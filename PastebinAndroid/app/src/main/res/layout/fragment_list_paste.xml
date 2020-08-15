@@ -7,6 +7,10 @@
         <variable
             name="viewModel"
             type="com.askominas.pastebinandroid.viewmodels.ListPasteViewModel" />
+
+        <variable
+            name="userLoggedIn"
+            type="Boolean" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,8 +21,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/create_paste_information"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="@{!userLoggedIn}"
+            android:text="@string/list_paste_information_logged_out"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
