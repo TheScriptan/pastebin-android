@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import com.askominas.pastebinandroid.core.AppPreferences
 import com.askominas.pastebinandroid.core.AuthenticationState
 import com.askominas.pastebinandroid.core.base.BaseViewModel
-import com.askominas.pastebinandroid.models.PasteList
+import com.askominas.pastebinandroid.models.Paste
 import com.askominas.pastebinandroid.repository.PastebinApiRepository
 import com.askominas.pastebinandroid.utils.event.Event
 import kotlinx.coroutines.launch
@@ -16,7 +16,7 @@ class ListPasteViewModel(val pastebinApiRepository: PastebinApiRepository) : Bas
     private val authenticationState: AuthenticationState by inject(AuthenticationState::class.java)
     private val preferences: AppPreferences by inject(AppPreferences::class.java)
 
-    val receivedPasteListEvent = MutableLiveData<Event<PasteList>>()
+    val receivedPasteListEvent = MutableLiveData<Event<List<Paste>>>()
 
     init {
         if (authenticationState.isLoggedIn) {
@@ -27,7 +27,7 @@ class ListPasteViewModel(val pastebinApiRepository: PastebinApiRepository) : Bas
                 }
                 resultPasteList.onSuccess {
                     receivedPasteListEvent.postValue(Event(it))
-                    Timber.d("Retrieved user paste list:\n${it.pasteList[0].pasteTitle}")
+                    Timber.d("Retrieved user paste list}")
                 }.onFailure { error ->
                     Timber.d("Failed to retrieve user paste list: ${error.message}")
                 }

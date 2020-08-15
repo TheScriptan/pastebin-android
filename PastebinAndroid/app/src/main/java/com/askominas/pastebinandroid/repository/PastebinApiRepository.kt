@@ -12,7 +12,7 @@ interface PastebinApiRepository {
     suspend fun getRawPaste(pasteId: String): String
     suspend fun postPaste(pasteText: String?): String
     suspend fun authenticate(username: String?, password: String?): String
-    suspend fun getPasteList(userKey: String, resultsLimit: Int): PasteList
+    suspend fun getPasteList(userKey: String, resultsLimit: Int): List<Paste>
 }
 
 class PastebinApiRepositoryImpl(val pastebinApi: PastebinApi) : PastebinApiRepository {
@@ -35,7 +35,7 @@ class PastebinApiRepositoryImpl(val pastebinApi: PastebinApi) : PastebinApiRepos
             responseUserKey.body() ?: "unk"
         }
 
-    override suspend fun getPasteList(userKey: String, resultsLimit: Int): PasteList =
+    override suspend fun getPasteList(userKey: String, resultsLimit: Int): List<Paste> =
         withContext(Dispatchers.IO) {
             val responsePasteList = pastebinApi.getPasteList(
                 userKey = userKey,
@@ -43,6 +43,6 @@ class PastebinApiRepositoryImpl(val pastebinApi: PastebinApi) : PastebinApiRepos
             ).execute()
             val json = XmlToJson.Builder(responsePasteList.body() ?: "{}").build().toFormattedString()
             val pasteList: PasteList = Gson().fromJson(json, PasteList::class.java)
-            pasteList
+            pasteList.pasteList
         }
 }

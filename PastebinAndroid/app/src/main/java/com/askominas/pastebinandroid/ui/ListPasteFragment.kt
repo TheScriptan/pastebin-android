@@ -9,6 +9,7 @@ import com.askominas.pastebinandroid.R
 import com.askominas.pastebinandroid.core.AuthenticationState
 import com.askominas.pastebinandroid.core.base.BaseFragment
 import com.askominas.pastebinandroid.databinding.FragmentListPasteBinding
+import com.askominas.pastebinandroid.models.Paste
 import com.askominas.pastebinandroid.models.PasteList
 import com.askominas.pastebinandroid.utils.event.EventObserver
 import com.askominas.pastebinandroid.viewmodels.ListPasteViewModel
@@ -47,13 +48,12 @@ class ListPasteFragment :
         viewModel.receivedPasteListEvent.observe(viewLifecycleOwner, receivedPasteListObserver)
         authenticationState.isLoggedInLiveData.observe(viewLifecycleOwner, EventObserver {
             binding.userLoggedIn = authenticationState.isLoggedIn
-            binding.invalidateAll()
             binding.executePendingBindings()
         })
         return view
     }
 
-    private val receivedPasteListObserver = EventObserver<PasteList> { pasteList ->
-        listPasteAdapter.updatePasteList(pasteList.pasteList)
+    private val receivedPasteListObserver = EventObserver<List<Paste>> { pasteList ->
+        listPasteAdapter.updatePasteList(pasteList)
     }
 }
