@@ -7,6 +7,7 @@ import kotlinx.coroutines.withContext
 interface PastebinApiRepository {
     suspend fun getRawPaste(pasteId: String): String
     suspend fun postPaste(pasteText: String?): String
+    suspend fun authenticate(username: String?, password: String?): String
 }
 
 class PastebinApiRepositoryImpl(val pastebinApi: PastebinApi) : PastebinApiRepository {
@@ -18,5 +19,13 @@ class PastebinApiRepositoryImpl(val pastebinApi: PastebinApi) : PastebinApiRepos
     override suspend fun postPaste(pasteText: String?): String = withContext(Dispatchers.IO) {
         val responsePostPaste = pastebinApi.postPaste(pasteText = pasteText).execute()
         responsePostPaste.body() ?: "Empty Response: ${responsePostPaste.errorBody()?.string()}"
+    }
+
+    override suspend fun authenticate(username: String?, password: String?): String = withContext(Dispatchers.IO){
+        val responseUserKey = pastebinApi.authenticate(
+            username = username,
+            password = password
+        ).execute()
+        responseUserKey.body() ?: "unk"
     }
 }

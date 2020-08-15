@@ -12,8 +12,8 @@ class CreatePasteViewModel(val pastebinApiRepository: PastebinApiRepository) : B
 
     fun onCreatePaste() {
         backgroundScope.launch {
-            val result = runCatching { pastebinApiRepository.postPaste(pasteText = pasteText.value) }
-            result.onSuccess { rawPaste ->
+            val resultPasteText = runCatching { pastebinApiRepository.postPaste(pasteText = pasteText.value) }
+            resultPasteText.onSuccess { rawPaste ->
                 Timber.d("Retrieved raw paste: $rawPaste")
             }.onFailure { exception ->
                 Timber.d("Failed to retrieve raw paste ${exception.message}")

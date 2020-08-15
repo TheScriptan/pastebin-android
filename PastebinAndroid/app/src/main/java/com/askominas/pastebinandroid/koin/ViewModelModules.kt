@@ -8,14 +8,12 @@ import org.koin.dsl.module
 
 val viewModelModules = module {
     viewModel {
-        CreatePasteViewModel(
-            pastebinApiRepository = get()
-        )
+        CreatePasteViewModel(pastebinApiRepository = get())
     }
     viewModel {
         ListPasteViewModel()
     }
     viewModel {
-        SignInViewModel()
+        SignInViewModel(pastebinApiRepository = get())
     }
 }
