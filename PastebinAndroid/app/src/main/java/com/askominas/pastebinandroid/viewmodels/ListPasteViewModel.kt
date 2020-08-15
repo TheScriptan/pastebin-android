@@ -3,7 +3,7 @@ package com.askominas.pastebinandroid.viewmodels
 import androidx.lifecycle.MutableLiveData
 import com.askominas.pastebinandroid.core.AppPreferences
 import com.askominas.pastebinandroid.core.AuthenticationState
-import com.askominas.pastebinandroid.core.BaseViewModel
+import com.askominas.pastebinandroid.core.base.BaseViewModel
 import com.askominas.pastebinandroid.models.PasteList
 import com.askominas.pastebinandroid.repository.PastebinApiRepository
 import com.askominas.pastebinandroid.utils.event.Event

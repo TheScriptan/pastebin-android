@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.askominas.pastebinandroid.R
 import com.askominas.pastebinandroid.core.AuthenticationState
-import com.askominas.pastebinandroid.core.BaseFragment
+import com.askominas.pastebinandroid.core.base.BaseFragment
 import com.askominas.pastebinandroid.databinding.FragmentListPasteBinding
 import com.askominas.pastebinandroid.models.PasteList
 import com.askominas.pastebinandroid.utils.event.EventObserver

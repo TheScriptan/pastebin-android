@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.askominas.pastebinandroid.R
-import com.askominas.pastebinandroid.core.BaseFragment
+import com.askominas.pastebinandroid.core.base.BaseFragment
 import com.askominas.pastebinandroid.databinding.FragmentSignInBinding
 import com.askominas.pastebinandroid.utils.event.EventObserver
 import com.askominas.pastebinandroid.viewmodels.SignInViewModel

@@ -1,7 +1,7 @@
 package com.askominas.pastebinandroid.viewmodels
 
 import androidx.lifecycle.MutableLiveData
-import com.askominas.pastebinandroid.core.BaseViewModel
+import com.askominas.pastebinandroid.core.base.BaseViewModel
 import com.askominas.pastebinandroid.repository.PastebinApiRepository
 import kotlinx.coroutines.launch
 import timber.log.Timber

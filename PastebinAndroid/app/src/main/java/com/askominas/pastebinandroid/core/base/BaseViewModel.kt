@@ -1,4 +1,4 @@
-package com.askominas.pastebinandroid.core
+package com.askominas.pastebinandroid.core.base
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

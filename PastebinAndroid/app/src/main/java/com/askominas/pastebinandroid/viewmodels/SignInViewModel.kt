@@ -4,9 +4,8 @@ import androidx.lifecycle.MutableLiveData
 import com.askominas.pastebinandroid.api.API_ERROR_INVALID_LOGIN
 import com.askominas.pastebinandroid.api.API_ERROR_INVALID_POST
 import com.askominas.pastebinandroid.core.AppPreferences
-import com.askominas.pastebinandroid.core.BaseViewModel
+import com.askominas.pastebinandroid.core.base.BaseViewModel
 import com.askominas.pastebinandroid.repository.PastebinApiRepository
-import com.askominas.pastebinandroid.ui.CreatePasteFragmentDirections
 import com.askominas.pastebinandroid.ui.SignInFragmentDirections
 import com.askominas.pastebinandroid.utils.event.Event
 import kotlinx.coroutines.launch

@@ -1,7 +1,7 @@
 package com.askominas.pastebinandroid.ui
 
 import com.askominas.pastebinandroid.R
-import com.askominas.pastebinandroid.core.BaseFragment
+import com.askominas.pastebinandroid.core.base.BaseFragment
 import com.askominas.pastebinandroid.databinding.FragmentCreatePasteBinding
 import com.askominas.pastebinandroid.viewmodels.CreatePasteViewModel
 
