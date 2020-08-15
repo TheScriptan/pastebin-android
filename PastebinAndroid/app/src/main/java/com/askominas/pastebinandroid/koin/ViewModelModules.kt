@@ -11,7 +11,7 @@ val viewModelModules = module {
         CreatePasteViewModel(pastebinApiRepository = get())
     }
     viewModel {
-        ListPasteViewModel()
+        ListPasteViewModel(pastebinApiRepository = get())
     }
     viewModel {
         SignInViewModel(pastebinApiRepository = get())

@@ -8,6 +8,7 @@ interface PastebinApiRepository {
     suspend fun getRawPaste(pasteId: String): String
     suspend fun postPaste(pasteText: String?): String
     suspend fun authenticate(username: String?, password: String?): String
+    suspend fun getPasteList(userKey: String, resultsLimit: Int): String
 }
 
 class PastebinApiRepositoryImpl(val pastebinApi: PastebinApi) : PastebinApiRepository {
@@ -21,11 +22,21 @@ class PastebinApiRepositoryImpl(val pastebinApi: PastebinApi) : PastebinApiRepos
         responsePostPaste.body() ?: "Empty Response: ${responsePostPaste.errorBody()?.string()}"
     }
 
-    override suspend fun authenticate(username: String?, password: String?): String = withContext(Dispatchers.IO){
-        val responseUserKey = pastebinApi.authenticate(
-            username = username,
-            password = password
-        ).execute()
-        responseUserKey.body() ?: "unk"
-    }
+    override suspend fun authenticate(username: String?, password: String?): String =
+        withContext(Dispatchers.IO) {
+            val responseUserKey = pastebinApi.authenticate(
+                username = username,
+                password = password
+            ).execute()
+            responseUserKey.body() ?: "unk"
+        }
+
+    override suspend fun getPasteList(userKey: String, resultsLimit: Int): String =
+        withContext(Dispatchers.IO) {
+            val responsePasteList = pastebinApi.getPasteList(
+                userKey = userKey,
+                resultsLimit = resultsLimit
+            ).execute()
+            responsePasteList.body() ?: "Empty Response: ${responsePasteList.errorBody()?.string()}"
+        }
 }

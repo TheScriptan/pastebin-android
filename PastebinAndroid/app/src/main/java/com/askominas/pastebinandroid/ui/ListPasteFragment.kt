@@ -9,16 +9,14 @@ import com.askominas.pastebinandroid.core.AuthenticationState
 import com.askominas.pastebinandroid.core.BaseFragment
 import com.askominas.pastebinandroid.databinding.FragmentListPasteBinding
 import com.askominas.pastebinandroid.viewmodels.ListPasteViewModel
-import org.koin.java.KoinJavaComponent
+import org.koin.java.KoinJavaComponent.inject
 
 class ListPasteFragment :
     BaseFragment<ListPasteViewModel, FragmentListPasteBinding>(ListPasteViewModel::class) {
     override val layoutResourceID: Int
         get() = R.layout.fragment_list_paste
 
-    private val authenticationState: AuthenticationState by KoinJavaComponent.inject(
-        AuthenticationState::class.java
-    )
+    private val authenticationState: AuthenticationState by inject(AuthenticationState::class.java)
 
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -22,4 +22,13 @@ interface PastebinApi {
         @Field(API_USER_NAME_FIELD) username: String?,
         @Field(API_USER_PASSWORD_FIELD) password: String?
     ): Call<String>
+
+    @FormUrlEncoded
+    @POST(POST_PASTE_ENDPOINT)
+    fun getPasteList(
+        @Field(API_DEV_KEY_FIELD) apiDevKey: String = API_DEV_KEY,
+        @Field(API_USER_KEY_FIELD) userKey: String,
+        @Field(API_RESULTS_LIMIT_FIELD) resultsLimit: Int,
+        @Field(API_OPTION_FIELD) apiOption: String = API_OPTION_FIELD_LIST
+    ): Call<String>
 }

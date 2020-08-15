@@ -12,8 +12,11 @@ const val API_OPTION_FIELD = "api_option"
 const val API_PASTE_CODE_FIELD = "api_paste_code"
 const val API_USER_NAME_FIELD = "api_user_name"
 const val API_USER_PASSWORD_FIELD = "api_user_password"
+const val API_USER_KEY_FIELD = "api_user_key"
+const val API_RESULTS_LIMIT_FIELD = "api_results_field"
 
 const val API_OPTION_FIELD_PASTE = "paste"
+const val API_OPTION_FIELD_LIST = "list"
 
 const val API_ERROR_INVALID_LOGIN = "Bad API request, invalid login"
 const val API_ERROR_INVALID_POST = "Bad API request, invalid POST parameters"
