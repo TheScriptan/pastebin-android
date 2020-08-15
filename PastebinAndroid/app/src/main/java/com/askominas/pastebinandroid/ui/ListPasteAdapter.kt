@@ -10,7 +10,7 @@ import com.askominas.pastebinandroid.models.Paste
 import com.askominas.pastebinandroid.ui.viewholders.ListPasteViewHolder
 
 class ListPasteAdapter(
-    val onClickCallback: () -> Unit,
+    val onClickCallback: (paste: Paste) -> Unit,
     val deletePasteCallback: () -> Unit
 ) : RecyclerView.Adapter<ListPasteViewHolder>() {
 
@@ -35,11 +35,9 @@ class ListPasteAdapter(
 
     inner class ListPasteAdapterClickListener : ViewHolderClickListeners {
         override val onItemClick: ViewHolderClickType? = { pos, type ->
-            // Navigate to PasteReader & pass content to the screen via Safe-Args
-            onClickCallback()
+            onClickCallback(pasteList[pos])
         }
         override val onItemLongClick: ViewHolderClickType? = { pos, type ->
-            // Delete Paste
             deletePasteCallback()
         }
     }

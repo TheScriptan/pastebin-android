@@ -14,12 +14,16 @@
         android:id="@+id/listPasteFragment"
         android:name="com.askominas.pastebinandroid.ui.ListPasteFragment"
         android:label="@string/list_paste_title"
-        tools:layout="@layout/fragment_list_paste" />
+        tools:layout="@layout/fragment_list_paste">
+        <action
+            android:id="@+id/action_listPasteFragment_to_displayPasteFragment"
+            app:destination="@id/displayPasteFragment" />
+    </fragment>
     <fragment
         android:id="@+id/signInFragment"
         android:name="com.askominas.pastebinandroid.ui.SignInFragment"
         android:label="@string/sign_in_title"
-        tools:layout="@layout/fragment_sign_in" >
+        tools:layout="@layout/fragment_sign_in">
         <action
             android:id="@+id/action_signInFragment_to_createPasteFragment"
             app:destination="@id/createPasteFragment"
@@ -29,4 +33,16 @@
     <action
         android:id="@+id/action_global_signInFragment"
         app:destination="@id/signInFragment" />
+    <fragment
+        android:id="@+id/displayPasteFragment"
+        android:name="com.askominas.pastebinandroid.ui.DisplayPasteFragment"
+        android:label="{pasteTitle}"
+        tools:layout="@layout/fragment_display_paste">
+        <argument
+            android:name="pasteKey"
+            app:argType="string" />
+        <argument
+            android:name="pasteTitle"
+            app:argType="string" />
+    </fragment>
 </navigation>

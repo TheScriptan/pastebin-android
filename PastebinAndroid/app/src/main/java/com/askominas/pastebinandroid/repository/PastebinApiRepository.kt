@@ -41,7 +41,8 @@ class PastebinApiRepositoryImpl(val pastebinApi: PastebinApi) : PastebinApiRepos
                 userKey = userKey,
                 resultsLimit = resultsLimit
             ).execute()
-            val json = XmlToJson.Builder(responsePasteList.body() ?: "{}").build().toFormattedString()
+            val json =
+                XmlToJson.Builder(responsePasteList.body() ?: "{}").build().toFormattedString()
             val pasteList: PasteList = Gson().fromJson(json, PasteList::class.java)
             pasteList.pasteList
         }

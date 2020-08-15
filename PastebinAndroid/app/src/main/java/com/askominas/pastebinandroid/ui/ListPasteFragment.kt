@@ -10,7 +10,7 @@ import com.askominas.pastebinandroid.core.AuthenticationState
 import com.askominas.pastebinandroid.core.base.BaseFragment
 import com.askominas.pastebinandroid.databinding.FragmentListPasteBinding
 import com.askominas.pastebinandroid.models.Paste
-import com.askominas.pastebinandroid.models.PasteList
+import com.askominas.pastebinandroid.utils.event.Event
 import com.askominas.pastebinandroid.utils.event.EventObserver
 import com.askominas.pastebinandroid.viewmodels.ListPasteViewModel
 import org.koin.java.KoinJavaComponent.inject
@@ -35,8 +35,13 @@ class ListPasteFragment :
 
         listPasteLayoutManager = LinearLayoutManager(context)
         listPasteAdapter = ListPasteAdapter(
-            onClickCallback = {
-                // Implement onClick callback
+            onClickCallback = { paste ->
+                val action =
+                    ListPasteFragmentDirections.actionListPasteFragmentToDisplayPasteFragment(
+                        paste.key,
+                        paste.title
+                    )
+                viewModel.navigateTo.postValue(Event(action))
             },
             deletePasteCallback = {
                 // Implement deletePasteCallback
@@ -51,6 +56,11 @@ class ListPasteFragment :
             binding.executePendingBindings()
         })
         return view
+    }
+
+    override fun onResume() {
+        viewModel.loadPasteList()
+        super.onResume()
     }
 
     private val receivedPasteListObserver = EventObserver<List<Paste>> { pasteList ->

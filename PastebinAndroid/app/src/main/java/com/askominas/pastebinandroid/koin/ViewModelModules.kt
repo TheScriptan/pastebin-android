@@ -1,6 +1,7 @@
 package com.askominas.pastebinandroid.koin
 
 import com.askominas.pastebinandroid.viewmodels.CreatePasteViewModel
+import com.askominas.pastebinandroid.viewmodels.DisplayPasteViewModel
 import com.askominas.pastebinandroid.viewmodels.ListPasteViewModel
 import com.askominas.pastebinandroid.viewmodels.SignInViewModel
 import org.koin.android.viewmodel.dsl.viewModel
@@ -15,5 +16,8 @@ val viewModelModules = module {
     }
     viewModel {
         SignInViewModel(pastebinApiRepository = get())
+    }
+    viewModel {
+        DisplayPasteViewModel(pastebinApiRepository = get())
     }
 }

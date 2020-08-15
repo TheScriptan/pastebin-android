@@ -19,6 +19,10 @@ class ListPasteViewModel(val pastebinApiRepository: PastebinApiRepository) : Bas
     val receivedPasteListEvent = MutableLiveData<Event<List<Paste>>>()
 
     init {
+        loadPasteList()
+    }
+
+    fun loadPasteList() {
         if (authenticationState.isLoggedIn) {
             backgroundScope.launch {
                 val userKey = preferences.userKey
