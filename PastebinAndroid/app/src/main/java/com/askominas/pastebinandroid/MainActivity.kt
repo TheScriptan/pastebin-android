@@ -48,17 +48,24 @@ class MainActivity : AppCompatActivity() {
         val signInItem = menu?.findItem(R.id.signInFragment)
         val logOutItem = menu?.findItem(R.id.logOutItem)
 
-        signInItem?.isVisible = !authenticationState.isLoggedIn
+        signInItem?.isVisible = !authenticationState.isLoggedIn &&
+                navController.currentDestination?.id != R.id.signInFragment
         logOutItem?.isVisible = authenticationState.isLoggedIn
 
         return super.onPrepareOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        if (item?.itemId == R.id.logOutItem) {
-            preferences.userKey = DEFAULT_USER_KEY
-            Toast.makeText(this, "Logging out", Toast.LENGTH_SHORT).show()
-            return true
+        when (item?.itemId) {
+            R.id.logOutItem -> {
+                preferences.userKey = DEFAULT_USER_KEY
+                Toast.makeText(this, "Logging out", Toast.LENGTH_SHORT).show()
+                return true
+            }
+            R.id.aboutItem -> {
+                Toast.makeText(this, "App was made by Ainis Skominas", Toast.LENGTH_SHORT).show()
+                return true
+            }
         }
 
         return NavigationUI.onNavDestinationSelected(

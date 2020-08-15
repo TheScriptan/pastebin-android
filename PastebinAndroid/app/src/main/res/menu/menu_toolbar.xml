@@ -5,6 +5,10 @@
         android:title="@string/sign_in_title" />
 
     <item
+        android:id="@+id/aboutItem"
+        android:title="@string/option_about" />
+
+    <item
         android:id="@+id/logOutItem"
         android:title="@string/option_log_out" />
 </menu>
