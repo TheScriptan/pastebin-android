@@ -24,7 +24,7 @@
             android:id="@+id/action_signInFragment_to_createPasteFragment"
             app:destination="@id/createPasteFragment"
             app:popUpTo="@id/createPasteFragment"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="false" />
     </fragment>
     <action
         android:id="@+id/action_global_signInFragment"

@@ -34,7 +34,8 @@ class MainActivity : AppCompatActivity() {
             R.id.createPasteFragment,
             R.id.listPasteFragment
         ).build()
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
+        setSupportActionBar(binding.toolbar)
+        NavigationUI.setupWithNavController(binding.toolbar, navController, appBarConfiguration)
         NavigationUI.setupWithNavController(binding.bottomNav, navController)
     }
 
@@ -64,9 +65,5 @@ class MainActivity : AppCompatActivity() {
             item!!,
             navController
         ) || super.onOptionsItemSelected(item)
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp()
     }
 }

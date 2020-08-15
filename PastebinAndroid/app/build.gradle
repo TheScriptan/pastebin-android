@@ -74,6 +74,8 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-scalars:$retrofitVersion"
 
+    //Xml to JSON
+    implementation 'com.github.smart-fun:XmlToJson:1.4.5'
 }
 
 check.dependsOn(detekt)
