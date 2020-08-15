@@ -10,9 +10,9 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/BaseFragmentTheme"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        style="@style/BaseFragmentTheme">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/text_create_paste_title"
@@ -23,11 +23,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edit_text_create_paste"
+            android:id="@+id/edit_text_create_paste_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:hint="@string/create_paste_title"
-            android:paddingTop="8dp"
             app:hintEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,8 +36,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@={viewModel.pasteText}"
-                android:maxLines="3" />
+                android:maxLines="3"
+                android:text="@={viewModel.pasteText}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
@@ -45,12 +45,12 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/create_paste_title"
             android:layout_marginTop="8dp"
             android:onClick="@{() -> viewModel.onCreatePaste()}"
+            android:text="@string/create_paste_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edit_text_create_paste" />
+            app:layout_constraintTop_toBottomOf="@id/edit_text_create_paste_text" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
