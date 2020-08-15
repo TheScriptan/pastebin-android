@@ -3,12 +3,19 @@ package com.askominas.pastebinandroid.viewmodels
 import androidx.lifecycle.MutableLiveData
 import com.askominas.pastebinandroid.api.API_ERROR_INVALID_LOGIN
 import com.askominas.pastebinandroid.api.API_ERROR_INVALID_POST
+import com.askominas.pastebinandroid.core.AppPreferences
 import com.askominas.pastebinandroid.core.BaseViewModel
 import com.askominas.pastebinandroid.repository.PastebinApiRepository
+import com.askominas.pastebinandroid.ui.CreatePasteFragmentDirections
+import com.askominas.pastebinandroid.ui.SignInFragmentDirections
 import com.askominas.pastebinandroid.utils.event.Event
 import kotlinx.coroutines.launch
+import org.koin.java.KoinJavaComponent.inject
 
 class SignInViewModel(val pastebinApiRepository: PastebinApiRepository) : BaseViewModel() {
+
+    val preferences: AppPreferences by inject(AppPreferences::class.java)
+
     val username = MutableLiveData<String>()
     val password = MutableLiveData<String>()
 
@@ -29,8 +36,8 @@ class SignInViewModel(val pastebinApiRepository: PastebinApiRepository) : BaseVi
                     return@launch
                 }
                 signInEvent.postValue(Event("Login successful: $userKey"))
-                // Store key locally
-                // Navigate to Create Paste Screen
+                preferences.userKey = userKey
+                navigateTo.postValue(Event(SignInFragmentDirections.actionSignInFragmentToCreatePasteFragment()))
             }.onFailure {
                 signInEvent.postValue(Event("Invalid credentials: ${it.message}"))
             }

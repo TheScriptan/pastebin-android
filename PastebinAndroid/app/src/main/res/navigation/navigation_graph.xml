@@ -19,7 +19,13 @@
         android:id="@+id/signInFragment"
         android:name="com.askominas.pastebinandroid.ui.SignInFragment"
         android:label="@string/sign_in_title"
-        tools:layout="@layout/fragment_sign_in" />
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_signInFragment_to_createPasteFragment"
+            app:destination="@id/createPasteFragment"
+            app:popUpTo="@id/createPasteFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
     <action
         android:id="@+id/action_global_signInFragment"
         app:destination="@id/signInFragment" />

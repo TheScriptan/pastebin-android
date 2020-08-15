@@ -8,11 +8,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.databinding.library.baseAdapters.BR
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
+import androidx.navigation.NavDirections
+import androidx.navigation.fragment.NavHostFragment
+import com.askominas.pastebinandroid.utils.event.EventObserver
 import org.koin.android.viewmodel.ext.android.viewModel
 import kotlin.reflect.KClass
 
-abstract class BaseFragment<VM : ViewModel, Binding : ViewDataBinding>(clazz: KClass<VM>) :
+abstract class BaseFragment<VM : BaseViewModel, Binding : ViewDataBinding>(clazz: KClass<VM>) :
     Fragment() {
 
     abstract val layoutResourceID: Int
@@ -29,6 +31,11 @@ abstract class BaseFragment<VM : ViewModel, Binding : ViewDataBinding>(clazz: KC
         binding.lifecycleOwner = viewLifecycleOwner
         binding.setVariable(BR.viewModel, viewModel)
 
+        viewModel.navigateTo.observe(viewLifecycleOwner, navigateToObserver)
         return view
+    }
+
+    private val navigateToObserver = EventObserver<NavDirections> { direction ->
+        NavHostFragment.findNavController(this).navigate(direction)
     }
 }

@@ -9,6 +9,7 @@
     <string name="label_password">Password</string>
 
     <string name="option_sign_in">Sign in</string>
+    <string name="option_log_out">Log out</string>
 
     <string name="create_paste_information">Enter text that you want to save in Pastebin\n\nAfter pressing Create Paste button, you will receive a link that saves your text online!</string>
 </resources>

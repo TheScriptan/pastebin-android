@@ -25,6 +25,7 @@ class SignInFragment :
 
         viewModel.signInEvent.observe(viewLifecycleOwner, EventObserver {
             Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+            activity?.invalidateOptionsMenu()
         })
 
         return view

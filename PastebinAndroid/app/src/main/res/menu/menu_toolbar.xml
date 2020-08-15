@@ -3,4 +3,8 @@
     <item
         android:id="@+id/signInFragment"
         android:title="@string/sign_in_title" />
+
+    <item
+        android:id="@+id/logOutItem"
+        android:title="@string/option_log_out" />
 </menu>
