@@ -21,7 +21,7 @@ class ListPasteViewModel(val pastebinApiRepository: PastebinApiRepository) : Bas
                     pastebinApiRepository.getPasteList(userKey, 10)
                 }
                 resultPasteList.onSuccess {
-                    Timber.d("Retrieved user paste list:\n$it")
+                    Timber.d("Retrieved user paste list:\n${it.paste[0].pasteTitle}")
                 }.onFailure { error ->
                     Timber.d("Failed to retrieve user paste list: ${error.message}")
                 }
