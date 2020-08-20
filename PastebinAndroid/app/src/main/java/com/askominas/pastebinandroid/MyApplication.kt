@@ -1,6 +1,7 @@
 package com.askominas.pastebinandroid
 
 import android.app.Application
+import com.askominas.pastebinandroid.koin.databaseModule
 import com.askominas.pastebinandroid.koin.networkModule
 import com.askominas.pastebinandroid.koin.singleModules
 import com.askominas.pastebinandroid.koin.viewModelModules
@@ -21,7 +22,8 @@ class MyApplication : Application() {
         val modulesList = listOf(
             singleModules,
             viewModelModules,
-            networkModule
+            networkModule,
+            databaseModule
         )
 
         startKoin {

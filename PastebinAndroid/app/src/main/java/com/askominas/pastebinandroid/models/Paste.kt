@@ -1,6 +1,7 @@
 package com.askominas.pastebinandroid.models
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.askominas.pastebinandroid.database.PASTE_TABLE_NAME
 import com.google.gson.annotations.SerializedName
 
@@ -14,7 +15,7 @@ data class Paste(
     @SerializedName("paste_expire_date") val expireDate: Int,
     @SerializedName("paste_date") val date: Int,
     @SerializedName("paste_format_long") val formatLong: String,
-    @SerializedName("paste_key") val key: String,
+    @PrimaryKey @SerializedName("paste_key") val key: String,
     @SerializedName("paste_size") val size: Int,
     @SerializedName("paste_url") val url: String
 )

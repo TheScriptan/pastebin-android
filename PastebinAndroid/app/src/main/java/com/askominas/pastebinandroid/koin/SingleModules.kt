@@ -12,5 +12,10 @@ val singleModules = module {
     single { AppPreferences(androidContext()) }
     single { NetworkManager(androidContext()) }
     single { AuthenticationState() }
-    single<PastebinApiRepository> { PastebinApiRepositoryImpl(pastebinApi = get()) }
+    single<PastebinApiRepository> {
+        PastebinApiRepositoryImpl(
+            pastebinApi = get(),
+            pasteDao = get()
+        )
+    }
 }
