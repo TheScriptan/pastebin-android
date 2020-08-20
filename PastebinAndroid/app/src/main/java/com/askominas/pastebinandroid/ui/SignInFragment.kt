@@ -23,8 +23,8 @@ class SignInFragment :
     ): View? {
         val view = super.onCreateView(inflater, container, savedInstanceState)
 
-        viewModel.signInEvent.observe(viewLifecycleOwner, EventObserver {
-            Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+        viewModel.signInEvent.observe(viewLifecycleOwner, EventObserver { eventMessage ->
+            Toast.makeText(context, eventMessage, Toast.LENGTH_SHORT).show()
             activity?.invalidateOptionsMenu()
         })
 

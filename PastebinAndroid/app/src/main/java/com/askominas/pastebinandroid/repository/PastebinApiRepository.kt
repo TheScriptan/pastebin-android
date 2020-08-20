@@ -18,18 +18,23 @@ interface PastebinApiRepository {
     suspend fun getPasteList(userKey: String, resultsLimit: Int): List<Paste>
 }
 
-class PastebinApiRepositoryImpl(val pastebinApi: PastebinApi, val pasteDao: PasteDao) : PastebinApiRepository {
+class PastebinApiRepositoryImpl(val pastebinApi: PastebinApi, val pasteDao: PasteDao) :
+    PastebinApiRepository {
 
     private val networkManager: NetworkManager by inject(NetworkManager::class.java)
 
     override suspend fun getRawPaste(pasteId: String): String = withContext(Dispatchers.IO) {
         val responseRawPaste = pastebinApi.getRawPaste(pasteId).execute()
-        responseRawPaste.body() ?: "Empty Response: ${responseRawPaste.errorBody()?.string()}"
+        responseRawPaste.body() ?: throw IllegalArgumentException(
+            "Empty Response: ${responseRawPaste.errorBody()?.string()}"
+        )
     }
 
     override suspend fun postPaste(pasteText: String?): String = withContext(Dispatchers.IO) {
         val responsePostPaste = pastebinApi.postPaste(pasteText = pasteText).execute()
-        responsePostPaste.body() ?: "Empty Response: ${responsePostPaste.errorBody()?.string()}"
+        responsePostPaste.body() ?: throw IllegalArgumentException(
+            "Empty Response: ${responsePostPaste.errorBody()?.string()}"
+        )
     }
 
     override suspend fun authenticate(username: String?, password: String?): String =
@@ -43,7 +48,7 @@ class PastebinApiRepositoryImpl(val pastebinApi: PastebinApi, val pasteDao: Past
 
     override suspend fun getPasteList(userKey: String, resultsLimit: Int): List<Paste> =
         withContext(Dispatchers.IO) {
-            if(networkManager.isOnline()) {
+            if (networkManager.isOnline()) {
                 val responsePasteList = pastebinApi.getPasteList(
                     userKey = userKey,
                     resultsLimit = resultsLimit

@@ -10,6 +10,7 @@ import timber.log.Timber
 class DisplayPasteViewModel(val pastebinApiRepository: PastebinApiRepository) : BaseViewModel() {
 
     val pasteContentEvent = MutableLiveData<Event<String>>()
+    val toastMessageEvent = MutableLiveData<Event<String>>()
     val pasteContent = MutableLiveData<String>()
 
     fun loadPasteContent(pasteKey: String) {
@@ -19,7 +20,8 @@ class DisplayPasteViewModel(val pastebinApiRepository: PastebinApiRepository) : 
             }
             responsePasteContent.onSuccess { pasteContent ->
                 pasteContentEvent.postValue(Event(pasteContent))
-            }.onFailure {
+            }.onFailure {error ->
+                toastMessageEvent.postValue(Event(error.message ?: "Error"))
                 Timber.d("Failed to load raw paste content")
             }
         }
