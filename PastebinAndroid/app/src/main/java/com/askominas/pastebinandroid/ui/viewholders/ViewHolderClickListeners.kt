@@ -1,4 +1,4 @@
-package com.askominas.pastebinandroid.core
+package com.askominas.pastebinandroid.ui.viewholders
 
 import com.askominas.pastebinandroid.core.extensions.ViewHolderClickType
 

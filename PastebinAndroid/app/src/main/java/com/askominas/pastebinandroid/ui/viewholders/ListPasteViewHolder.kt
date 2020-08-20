@@ -3,7 +3,6 @@ package com.askominas.pastebinandroid.ui.viewholders
 import android.view.View
 import android.widget.TextView
 import com.askominas.pastebinandroid.R
-import com.askominas.pastebinandroid.core.ViewHolderClickListeners
 import com.askominas.pastebinandroid.core.base.BaseViewHolder
 import com.askominas.pastebinandroid.models.Paste
 

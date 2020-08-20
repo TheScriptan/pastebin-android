@@ -2,7 +2,7 @@ package com.askominas.pastebinandroid.core.base
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.askominas.pastebinandroid.core.ViewHolderClickListeners
+import com.askominas.pastebinandroid.ui.viewholders.ViewHolderClickListeners
 import com.askominas.pastebinandroid.core.extensions.onClick
 import com.askominas.pastebinandroid.core.extensions.onLongClick
 

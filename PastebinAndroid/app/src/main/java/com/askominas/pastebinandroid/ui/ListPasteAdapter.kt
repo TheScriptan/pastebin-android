@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.askominas.pastebinandroid.R
-import com.askominas.pastebinandroid.core.ViewHolderClickListeners
+import com.askominas.pastebinandroid.ui.viewholders.ViewHolderClickListeners
 import com.askominas.pastebinandroid.core.extensions.ViewHolderClickType
 import com.askominas.pastebinandroid.models.Paste
 import com.askominas.pastebinandroid.ui.viewholders.ListPasteViewHolder
@@ -33,7 +33,8 @@ class ListPasteAdapter(
         notifyDataSetChanged()
     }
 
-    inner class ListPasteAdapterClickListener : ViewHolderClickListeners {
+    inner class ListPasteAdapterClickListener :
+        ViewHolderClickListeners {
         override val onItemClick: ViewHolderClickType? = { pos, type ->
             onClickCallback(pasteList[pos])
         }
