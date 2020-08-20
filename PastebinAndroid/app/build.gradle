@@ -44,6 +44,7 @@ dependencies {
     def nav_version = "2.3.0"
     def koin_version= "2.1.6"
     def retrofitVersion = "2.9.0"
+    def room_version = "2.2.5"
 
     //Core
     implementation fileTree(dir: "libs", include: ["*.jar"])
@@ -77,6 +78,11 @@ dependencies {
     //Xml to JSON & GSON
     implementation 'com.github.smart-fun:XmlToJson:1.4.5'
     implementation 'com.google.code.gson:gson:2.8.6'
+
+    //Room
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
 }
 
 check.dependsOn(detekt)

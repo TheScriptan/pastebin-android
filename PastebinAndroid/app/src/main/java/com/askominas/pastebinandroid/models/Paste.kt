@@ -1,7 +1,10 @@
 package com.askominas.pastebinandroid.models
 
+import androidx.room.Entity
+import com.askominas.pastebinandroid.database.PASTE_TABLE_NAME
 import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = PASTE_TABLE_NAME)
 data class Paste(
     @SerializedName("content") val content: String,
     @SerializedName("paste_private") val pastePrivate: Int,
